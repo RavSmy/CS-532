@@ -6,6 +6,15 @@ import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {
+
+        System.out.println("PART 1\n");
+        UnionFind forest2 = new UnionFind(4);
+
+		forest2.wUnion(0,1);
+		forest2.wUnion(2,0);
+		forest2.wUnion(3,0);
+		forest2.printArray();
+
 		UnionFind forest1 = new UnionFind(12);
 
 		forest1.wUnion(0,1);
@@ -22,10 +31,13 @@ public class Main {
 		forest1.wUnion(6,9);
 		forest1.printArray();
 
+        forest1.wUnion(9,5);
+		forest1.wUnion(5,11);  
 
-		forest1.wUnion(9,5);
-		forest1.wUnion(5,11);
-		System.out.println(forest1.pcFind(9));
+        System.out.print("\n" + forest1.pcFind(9) + "\n");
+
 		forest1.printArray();
+
+        System.out.println("PART 2\n");
 	}
 }
