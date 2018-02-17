@@ -6,8 +6,8 @@ import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {
-
-        System.out.println("PART 1\n");
+        //PART 1 - Forest------------
+        System.out.println("\nPART 1\n");
         UnionFind forest2 = new UnionFind(4);
 
 		forest2.wUnion(0,1);
@@ -38,6 +38,16 @@ public class Main {
 
 		forest1.printArray();
 
-        System.out.println("PART 2\n");
+        //PART 2 - MAZE------------------
+        System.out.println("\nPART 2\n");
+/*        Maze maze3 = new Maze(3);
+        maze3.printKnock(); 
+        
+        
+        Maze maze4 = new Maze(4);
+        maze4.printKnock(); 
+*/
+        Maze maze5 = new Maze(20);        
+        maze5.printMaze();
 	}
 }
