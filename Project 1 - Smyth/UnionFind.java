@@ -51,5 +51,8 @@ public class UnionFind
 		for (int i = 0 ; i < parent.length; i++) System.out.println(i + " : " + parent[i]);
 	}
 
+ }
 
-}
+
+
+

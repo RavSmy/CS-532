@@ -40,14 +40,14 @@ public class Main {
 
         //PART 2 - MAZE------------------
         System.out.println("\nPART 2\n");
-/*        Maze maze3 = new Maze(3);
+        Maze maze3 = new Maze(3);
         maze3.printKnock(); 
-        
-        
+
         Maze maze4 = new Maze(4);
-        maze4.printKnock(); 
-*/
-        Maze maze5 = new Maze(20);        
-        maze5.printMaze();
+        maze3.printKnock(); 
+
+        Maze maze5 = new Maze(5);
+        maze3.printKnock(); 
+         
 	}
 }
