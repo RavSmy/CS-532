@@ -10,12 +10,13 @@ G 3
 
 output:
 
-F	2	000
-G	3	001
-B	5	01
-A	6	10
-D	1	1100
-E	2	1101
-C	4	111
+Character 	Frequency 	Huffman Code
+F		2		000
+G		3		001
+B		5		01
+A		6		10
+D		1		1100
+E		2		1101
+C		4		111
 Lavg = 2.652173913043478
 CR = 0.6684782608695652
