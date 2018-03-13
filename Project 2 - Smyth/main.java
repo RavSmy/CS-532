@@ -54,7 +54,7 @@ public class main {
         genCode(root.right, str+"1");
     }
     
-    // Calculating Lavg and Compression Rate
+    
     static void printCode(Node root){
         if (root==null) return;
         if (root.c != '\0') System.out.println(root.c + "\t" + root.x + "\t" + root.huffcode);
@@ -62,6 +62,7 @@ public class main {
         printCode(root.right);
     }
 
+    // Calculating Lavg and Compression Rate
     static double getBits(Node root, int bits){
         if (root.c != '\0') return bits += (root.x * root.huffcode.length());  
         return getBits(root.left, bits) + getBits(root.right, bits);
