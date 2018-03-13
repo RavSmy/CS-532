@@ -7,27 +7,36 @@ import java.util.*;
 public class main {
 
     public static void main(String[] args) {
+        PriorityQueue<Node> min_pq = new PriorityQueue<>(); 
+            
+        file_MinPQ(min_pq);
 
-        Queue<Node> min_pq = new PriorityQueue<>();
-        Node root = null;
-        
-        // File Input
+        Node huffRoot = minPQ_HuffTree(min_pq); 
+       
+        encode(huffRoot, ""); 
+
+        System.out.println("Character \tFrequency \tHuffman Code");
+        printCode(huffRoot);        
+        System.out.println("Lavg = " +  getBits(huffRoot, 0)/getFreq(huffRoot,0));
+        System.out.println("CR = " + ((8 - getBits(huffRoot, 0)/getFreq(huffRoot,0))/ 8) );         
+    } 
+
+    static void file_MinPQ(PriorityQueue<Node> min_pq) {
         try {
-
             Scanner input = new Scanner(new File("input.txt"));
             
-            // Adding c:f into min_PQ 
-            while (input.hasNext()) {
+            while (input.hasNext()) 
                 min_pq.add(new Node(input.next().charAt(0), input.nextInt()));
-            }
-
+            
         }catch(Exception e){
             System.out.println("Didn't work, sorry: " + e);
             System.exit(0); 
             }
+    }
 
-        // Constructing Huffman Tree 
-        while(min_pq.size() != 1){  
+    static Node minPQ_HuffTree(PriorityQueue<Node> min_pq) {
+         Node root = null;    
+         while(min_pq.size() != 1){  
             Node internal = new Node('\0', 0);
             internal.left = min_pq.remove();
             internal.right = min_pq.remove();
@@ -36,24 +45,15 @@ public class main {
 
             root = internal; 
             min_pq.add(root);
-        }
-         
-   // Decode and Print Huffman Tree
-        genCode(root, ""); 
-
-        System.out.println("Character \tFrequency \tHuffman Code");
-        printCode(root); 
-        
-        System.out.println("Lavg = " +  getBits(root, 0)/getFreq(root,0));
-        System.out.println("CR = " + ((8 - getBits(root, 0)/getFreq(root,0))/ 8) );
-          
-    } 
-
-    static void genCode(Node root, String str){
+        }        
+        return root; 
+    }
+    
+    static void encode(Node root, String str){
         if (root==null) return;
         if (root.c != '\0') root.huffcode = str;
-        genCode(root.left, str+"0");
-        genCode(root.right, str+"1");
+        encode(root.left, str+"0");
+        encode(root.right, str+"1");
     }
     
     
@@ -64,7 +64,6 @@ public class main {
         printCode(root.right);
     }
 
-    // Calculating Lavg and Compression Rate
     static double getBits(Node root, int bits){
         if (root.c != '\0') return bits += (root.x * root.huffcode.length());  
         return getBits(root.left, bits) + getBits(root.right, bits);
@@ -74,11 +73,7 @@ public class main {
         if (root.c != '\0') return freq += root.x;  
         return getFreq(root.left, freq) + getFreq(root.right, freq);      
     }
- 
-
 } 
-
-
 
 class Node implements Comparable<Node>
 {
@@ -97,5 +92,4 @@ class Node implements Comparable<Node>
 		if (this.x < n.x) return -1;
 		return 1;		
 	}
-
 }
