@@ -38,10 +38,12 @@ public class main {
             min_pq.add(root);
         }
          
-    
-        // Decode and Print Huffman Tree
+   // Decode and Print Huffman Tree
         genCode(root, ""); 
+
+        System.out.println("Character \tFrequency \tHuffman Code");
         printCode(root); 
+        
         System.out.println("Lavg = " +  getBits(root, 0)/getFreq(root,0));
         System.out.println("CR = " + ((8 - getBits(root, 0)/getFreq(root,0))/ 8) );
           
@@ -57,7 +59,7 @@ public class main {
     
     static void printCode(Node root){
         if (root==null) return;
-        if (root.c != '\0') System.out.println(root.c + "\t" + root.x + "\t" + root.huffcode);
+        if (root.c != '\0') System.out.println(root.c + "\t\t" + root.x + "\t\t" + root.huffcode);
         printCode(root.left);
         printCode(root.right);
     }
@@ -66,13 +68,11 @@ public class main {
     static double getBits(Node root, int bits){
         if (root.c != '\0') return bits += (root.x * root.huffcode.length());  
         return getBits(root.left, bits) + getBits(root.right, bits);
-       
     }
 
     static double getFreq(Node root, int freq){
         if (root.c != '\0') return freq += root.x;  
-        return getFreq(root.left, freq) + getFreq(root.right, freq);
-       
+        return getFreq(root.left, freq) + getFreq(root.right, freq);      
     }
  
 
