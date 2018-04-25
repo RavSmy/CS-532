@@ -1,0 +1,10 @@
+// Smyth, Ravela -- CS 532 -- Project #5 
+// *** Bucket.cpp ***
+
+#include "Bucket.h"
+
+Bucket::Bucket(int capacity){}
+
+void Bucket::setRecord(int pos, Record r){}
+
+Record Bucket::getRecord(int pos){return *record[pos]; }

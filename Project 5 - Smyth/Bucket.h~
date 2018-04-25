@@ -1,0 +1,22 @@
+// Smyth, Ravela -- CS 532 -- Project #5 
+// *** Bucket.h ***
+
+#ifndef BUCKET_H
+
+	#define BUCKET_H
+	#include <iostream>
+	#include "Record.h" 
+	using namespace std;
+
+	class Bucket {
+		private:
+			int capacity;
+			Record records[];
+		public:
+			Bucket(int capacity);
+			Record(int id, string name);
+			int getId();
+			char[] getName();
+	}
+
+#endif
