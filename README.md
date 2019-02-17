@@ -1,3 +1,4 @@
 # CS-532
-Java/C++/C Advanced Data Structures - Spring 2018
+C++ Advanced Data Structures - Spring 2019 -
+--Java/C++/C Advanced Data Structures - Spring 2018--
  
