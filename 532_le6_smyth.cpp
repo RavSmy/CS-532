@@ -36,7 +36,7 @@ int main()
 	myset.insert(total); 
 
 	int i = 0;
-
+	
 	for (SOP::iterator itr = myset.begin(); itr != myset.end(); ++itr, i++) {
 		if (i == 7) {
 			i = 0;
@@ -45,7 +45,7 @@ int main()
 			myset.erase(total);
 		}
 	}
-
+	myset.erase(OP{ 0,0 });
 	for (int i = 0; i < 100; i++)
 		cout << oph[i] << endl;
 
